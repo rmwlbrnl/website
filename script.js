@@ -198,7 +198,7 @@ const images = document.querySelectorAll('.carousel img');
       .join("");
 
     //  Keep generic description at bottom center
-    const genericDescription = A glimpse of our unforgettable ${e.title} moments.;
+    const genericDescription = `A glimpse of our unforgettable ${e.title} moments.`;
 
     leftPanel.innerHTML = `
       <div class="expanded-content">
@@ -207,7 +207,7 @@ const images = document.querySelectorAll('.carousel img');
         <div class="subject-photos">${photosHTML}</div>
         <p class="subject-description" style="text-align:center;margin-top:20px;">${genericDescription}</p>
       </div>
-    `;
+    `
   }
   
   // === ENLARGE SUBJECT PHOTO (ZOOM-IN POPUP WITH DESCRIPTION ON RIGHT) ===
