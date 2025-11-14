@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tam Collection</title>
+  <link rel="stylesheet" href="website.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- LEFT PANEL -->
+  <div class="left" id="leftPanel">
+    <div class="content-left">
+      <img src="logo.png" alt="logo" class="logo">
+      <h1>Tam Collection</h1>
+      <p>A collection of our experience during our stay at FEU Roosevelt Marikina.</p>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right" id="rightPanel">
+    <nav>
+      <a href="#" id="homeBtn">Home</a>
+      <a href="#" id="StryveBtn">Stryve</a> <!-- bago -->
+      <div class="dropdown">
+        <a href="#" class="dropbtn" onclick="toggleDropdown(event)">FEUR Events ▾</a>
+        <div class="dropdown-content" id="dropdownMenu">
+          <a href="#">Sinag Tam</a>
+          <a href="#">Sinag Sports</a>
+          <a href="#">Orientation</a>
+        </div>
+      </div>
+      <a href="#" id="aboutBtn">About</a>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <div class="profile" id="homeSection">
+      <div class="carousel-container">
+        <button class="prev" aria-label="Prev">&#10094;</button>
+        <div class="carousel">
+          <img src="casin.jpg" alt="JM" class="active">
+          <img src="noel.jpg" alt="Noel">
+          <img src="bernal.jpg" alt="Ramwil">
+        </div>
+        <button class="next" aria-label="Next">&#10095;</button>
+      </div>
+
+      <div class="bio">
+        <h2 id="member-name">Hi, I'm JM</h2>
+      </div>
+
+      <!-- SUBJECT PREVIEWS -->
+      <div class="subjects">
+        <div class="subject-card">
+          <div class="subject-header">
+            <span>Purposive</span>
+            <a href="#" class="arrow" onclick="expandSubject('purposive', event)">➜</a>
+          </div>
+          <!--  added data-description -->
+          <img src="purposive(1).jpg" alt="Purposive" class="subject-photo" data-description="Our journey in Purposive Communication, learning how to express and connect effectively.">
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-header">
+            <span>PE</span>
+            <a href="#" class="arrow" onclick="expandSubject('pe', event)">➜</a>
+          </div>
+          <!--  added data-description -->
+          <img src="pe(1).jpg" alt="PE" class="subject-photo" data-description="Fun and fitness moments during our PE classes, staying active and healthy together.">
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-header">
+            <span>NSTP</span>
+            <a href="#" class="arrow" onclick="expandSubject('nstp', event)">➜</a>
+          </div>
+          <!--  added data-description -->
+          <img src="nstp(1).jpg" alt="NSTP" class="subject-photo" data-description="Serving the community through NSTP activities that build teamwork and compassion.">
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-header">
+            <span>Halloween</span>
+            <a href="#" class="arrow" onclick="expandSubject('halloween', event)">➜</a>
+          </div>
+          <!--  added data-description -->
+          <img src="halloween(1).jpg" alt="Halloween" class="subject-photo" data-description="A spooky yet fun Halloween event celebrated with creativity and teamwork!">
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="about-section" id="aboutSection">
+      <h2>About Us</h2>
+      <div class="members">
+        <div class="member">
+          <img src="casin.jpg" alt="JM">
+          <p class="name">JM - Member</p>
+          <p class="desc">Hi, I'm John Michael <br>1st year section 2 of BSIT</p>
+        </div>
+
+        <div class="member">
+          <img src="noel.jpg" alt="Noel">
+          <p class="name">Noel - Member</p>
+          <p class="desc">Hi, I'm Noel Angelo <br>1st year section 2 of BSIT</p>
+        </div>
+
+        <div class="member">
+          <img src="bernal.jpg" alt="Ramwil">
+          <p class="name">Ramwil - Member</p>
+          <p class="desc">Hi, I'm Ramwil <br>1st year section 2 of BSIT</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  Added enlarge overlay -->
+  <div class="subject-enlarge" id="subjectEnlarge" style="display: none;">
+    <div class="subject-enlarge-box">
+      <button class="photo-close-inside" onclick="closeEnlarge()">×</button>
+      <img id="enlargedImg" class="subject-enlarge-img" src="" alt="">
+      <p id="enlargedDesc" class="subject-description"></p>
+    </div>
+  </div>
+
+  <!--  Added script -->
+  <script>
+    // open enlarge overlay
+    document.querySelectorAll('.subject-photo').forEach(photo => {
+      photo.addEventListener('click', () => {
+        const imgSrc = photo.src;
+        const imgDesc = photo.getAttribute('data-description');
+        document.getElementById('subjectEnlarge').style.display = 'flex';
+        document.getElementById('enlargedImg').src = imgSrc;
+        document.getElementById('enlargedDesc').textContent = imgDesc;
+      });
+    });
+
+    // close enlarge
+    function closeEnlarge() {
+      document.getElementById('subjectEnlarge').style.display = 'none';
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
